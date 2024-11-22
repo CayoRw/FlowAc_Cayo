@@ -1,0 +1,22 @@
+DBAR
+x---x x-----x x-----x x-----x x---x x------x x------x x-------x x-------x x-------x x-------x
+BARRA  PD(PU)  QD(PU) Bsh(PU)  TIPO  Vesp(PU) Oesp(°) PGesp(PU) Cus($/MW) CGmin(PU) CGmax(PU)
+   01    0.00    0.00    0.00    SW     1.00     0.00      0.00     25.00      0.00      1.50
+   02    0.50    0.16    0.00    PV     1.00     0.00      0.80     15.00      0.00      1.00
+   03    0.50    0.22    0.00    PQ     1.00     0.00      0.00     00.00      0.00      0.00
+   04    0.50    0.22    0.00    PQ     1.00     0.00      0.00     00.00      0.00      0.00
+####
+
+DCIR
+x---x x---x x---x x------x x------x x-------x x------x x--------x x-----------x  x------x
+BDE   BPARA  NCIR  RES(PU) REAT(PU) SUCsh(PU)  TAP(PU) DEF(GRAUS) LIG(L)DESL(D)   CAP(PU)
+   01    02    01   0.0000   0.1500      0.00     1.00     00.000             L    0.4000
+   01    03    02   0.0000   0.1500      0.00     1.00     00.000             L    0.5000
+   02    04    03   0.0000   0.1100      0.00     1.00     00.000             L    0.3000
+   03    04    04   0.0000   0.1100      0.00     1.00     00.000             L    0.3000
+####
+
+OBS.:
+01 - Na existência de mais de um circuito entre duas barras, cada um deve ser inserido em DCIR separadamente.
+02 - A suceptância shunt da barra (Bsh) deve ser inserida como: + (positiva) para C e -(negativa) para L.
+03 - A suceptância shunt do circuito (SUCsh) de DCIR é a total do circuito.
