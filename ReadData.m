@@ -2,6 +2,8 @@ classdef ReadData
     properties
         DBAR
         DCIR
+        NBus
+        NLin
     end
     methods
         function obj = ReadData(filename)
@@ -61,12 +63,18 @@ classdef ReadData
         % Convertendo as matrizes para double
         obj.DBAR = str2double(obj.DBAR);
         obj.DCIR = str2double(obj.DCIR);
+
+        % Obtendo o NLin e o NBus
+        [obj.NLin, ~] = size(obj.DCIR);
+        [obj.NBus, ~] = size(obj.DBAR);
         end
 
-        function [DBAR, DCIR] = getmatriz(obj)
+        function [DBAR, DCIR,NBus,NLin] = getmatriz(obj)
             % Método para retornar as matrizes DBAR, DCIR e a tolerância
             DBAR = obj.DBAR;
             DCIR = obj.DCIR;
+            NBus = obj.NBus;
+            NLin = obj.NLin;
         end
     end
 end

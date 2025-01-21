@@ -12,7 +12,7 @@ classdef CalcFlow
             obj.FlowP = zeros(NLin,5);
             obj.FlowQ = zeros(NLin,5);
             obj.FlowS = zeros(NLin,2);
-            posicao1 = (1:NBus).';       % Vetor de 1 a NBus
+            posicao1 = (1:NBus).';  % Vetor de 1 a NBus
             posicao2 = (NBus+1:NBus*2).';  % Vetor de NBus a 2xNBus
             theta = [ThetasV(posicao1)];
             VBus = [ThetasV(posicao2)];
@@ -63,8 +63,8 @@ classdef CalcFlow
                 obj.FlowQ(il,4) = Qmk;
                 obj.FlowQ(il,5) = obj.FlowQ(il,3) + obj.FlowQ(il,4);
                 % Armazenando Skm e Smk
-                obj.FlowS(il,1) = obj.FlowP(il,3) + obj.FlowQ(il,3);
-                obj.FlowS(il,2) = obj.FlowP(il,4) + obj.FlowQ(il,4);
+                obj.FlowS(il,1) = sqrt(obj.FlowP(il,3) ^ 2 + obj.FlowQ(il,3) ^ 2);
+                obj.FlowS(il,2) = sqrt(obj.FlowP(il,4) ^ 2 + obj.FlowQ(il,4) ^ 2);
             end
         end
         function [FlowP, FlowQ, FlowS] = getFlows(obj)

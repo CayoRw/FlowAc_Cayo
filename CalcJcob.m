@@ -138,21 +138,19 @@ classdef CalcJcob
                 obj.ThetasV = obj.ThetasV + DeltaThetasV;
                 count = count+1; 
                 if (count == max_count-1)
-                    disp(sprintf('Cuidado, a Jacob parou com %d iterações com um erro maximo de %d', max_count, max_error))
-                    disp (' ')
+                    disp(sprintf('*Cuidado, a Jacob parou com %d iterações com um erro maximo de %d!! Do not trust!', max_count, max_error))
                 end
             end
             if count ~= max_count
                 disp(sprintf('Jcob convergiu com %d iterações com uma variação de DeltaPQ máxima de %d', count, max_error))
-                disp (' ')
             end
             for i = 1:NBus
                 if (BusData(i,5)==0)
-                    obj.Pgd(i,1) = -DeltaP(i,1);
-                    obj.Qgd(i,1) = -DeltaQ(i,1);
+                    obj.Pgd(i,1) = obj.Pgd(i,1) -DeltaP(i,1);
+                    obj.Qgd(i,1) = obj.Qgd(i,1) -DeltaQ(i,1);
                 end
                 if (BusData(i,5)==1)
-                    obj.Qgd(i,1) = -DeltaQ(i,1);
+                    obj.Qgd(i,1) = obj.Qgd(i,1) -DeltaQ(i,1);
                 end
             end
         end
