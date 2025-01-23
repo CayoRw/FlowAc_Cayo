@@ -32,8 +32,8 @@ classdef Severity
             if (Pij<=PijMax)
                 OverL = 0;
             else
-                OverL = (Pij - (PijMax*0.85))/(PijMax*0.85);
-                %OverL = (Pij - PijMax)/PijMax;
+                %OverL = (Pij - (PijMax*0.85))/(PijMax*0.85);
+                OverL = (Pij - PijMax)/PijMax;
             end
         end
         function [Sum,Qtd] = getSum(obj)

@@ -6,11 +6,13 @@ Sbase = 100;  % MVA
 tol = 0.0001;
 
 % File name
-filename = 'dados_sistema13B_EC1.txt';
+filename = 'dados_sistema13B_EC3_Teste1.txt';
 
 % Getting the datas 
 a = ReadData(filename);
 [DBAR, DCIR] = a.getmatriz();       
+
+DCIR(10, :) = [];
 
 % Getting the YBus
 b = MakeYBus(DBAR,DCIR);
@@ -23,7 +25,7 @@ c = GetPQesp(DBAR);
 % Throughout Newtom Rapson, calculating the Thetas V vector 
 d = CalcJcob(DBAR,Pesp,Qesp,BBus,tol);
 [ThetasV, Pgd, Qgd] = d.getThetasV();
- 
+
 % Calc Flow
 e = CalcFlow(DBAR, DCIR, ThetasV);
 [FlowP, FlowQ, FlowS] = e.getFlows();
