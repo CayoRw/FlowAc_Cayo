@@ -6,13 +6,14 @@ Sbase = 100;  % MVA
 tol = 0.0001;
 
 % File name
-filename = 'dados_sistema13B_EC3_Teste1.txt';
+filename = 'dados_sistema13B_EC3_CasoBase.txt';
 
 % Getting the datas 
 a = ReadData(filename);
 [DBAR, DCIR] = a.getmatriz();       
 
 DCIR(10, :) = [];
+%DCIR(3, :) = [];
 
 % Getting the YBus
 b = MakeYBus(DBAR,DCIR);
