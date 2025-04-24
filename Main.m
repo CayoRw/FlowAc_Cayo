@@ -9,6 +9,7 @@ tol = 0.0001;
 
 % File name
 filename = 'dados_sistema13B_EC3_CasoBase.txt';
+filename = 'dados_sistema13B_EC3_CasoBase.txt';
 
 % Getting the datas 
 a = ReadData(filename);
