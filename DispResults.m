@@ -7,7 +7,7 @@ classdef DispResults
     end
     
     methods
-        function obj = DispResults(FlowP, FlowQ, FlowS, ThetasV, PG, QG, BusData, LinData, Sbase)
+        function obj = DispResults(FlowP, FlowQ, FlowS, ThetasV, PG, QG, BusData, LinData, Sbase, VBaseBar)
 
             [NBus, ~] = size(BusData);
             [NLin, ~] = size(LinData);
@@ -16,7 +16,10 @@ classdef DispResults
             Theta = [ThetasV(posicao1)];
             VBus = [ThetasV(posicao2)];
             tipo = strings(NBus, 1);
-            VBaseBar = [500;500;500;500;500;500;500;138;138;138;138;138;138];
+            % If VBaseBar is empty, fill it with 230 V for all buses
+            if isempty(VBaseBar)
+                VBaseBar = 230 * ones(NBus, 1);
+            end
             Tpg = 0;
             Tpl = 0;
             Tqg = 0;
